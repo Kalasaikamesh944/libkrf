@@ -27,6 +27,7 @@ void banner(){
     std::cout << RED << "========================================" << RESET << std::endl;
     std::cout << GREEN << "🔥 Welcome to the libkrf Sniffer Tool 🔥" << RESET << std::endl;
     std::cout << YELLOW << "========================================" << RESET << std::endl;
+    std::cout << MAGENTA << " PROGRAMMER : N V R K SAI KAMESH YADAVALLI \n BY KTMC " << RESET << std::endl;
     
 }
 
@@ -58,6 +59,7 @@ int main(int argc, char** argv) {
         int res = pcap_next_ex(handle, &header, &packet);
         if (res == 1) { // Packet captured
             int rssi;
+            analyzer.set_monitor_mode();
             analyzer.parse_radiotap_header(packet, header->len, rssi);
             std::string mac_addr = analyzer.extract_mac_address(packet);
             std::cout << "Captured MAC: " << mac_addr << std::endl;

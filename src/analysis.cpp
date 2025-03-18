@@ -28,26 +28,39 @@ const std::string CYAN = "\033[1;36m";
 const std::string RESET = "\033[0m";  // Reset to default color
 
 
-std::vector<unsigned char> WiFiRFAnalyzer::hexToBytes(const std::string& hex) {
-    std::vector<unsigned char> bytes;
-    for (size_t i = 0; i < hex.length(); i += 2) {
-        std::string byteString = hex.substr(i, 2);
-        unsigned char byte = (unsigned char) strtol(byteString.c_str(), nullptr, 16);
-        bytes.push_back(byte);
-    }
-    return bytes;
-}
+void WiFiRFAnalyzer::hexDump(const uint8_t* data, size_t len, const std::string& title) {
+    std::cout << CYAN << "Hex Dump: " << title << " (" << len << " bytes)" << RESET << std::endl;
 
-void WiFiRFAnalyzer::printBytesAsText(const std::vector<unsigned char>& bytes) {
-    std::cout << "Decoded Data: ";
-    for (unsigned char byte : bytes) {
-        if (isprint(byte)) {  // Only print readable ASCII characters
-            std::cout << byte;
-        } else {
-            std::cout << ".";  // Replace non-printable characters
+    for (size_t i = 0; i < len; i += 16) {
+        // Print offset
+        printf("%04zx: ", i);
+
+        // Print hex values
+        for (size_t j = 0; j < 16; j++) {
+            if (i + j < len) {
+                printf("%02X ", data[i + j]);
+            } else {
+                printf("   "); // Pad if less than 16 bytes
+            }
         }
+
+        // Print ASCII representation
+        printf(" ");
+        for (size_t j = 0; j < 16; j++) {
+            if (i + j < len) {
+                unsigned char c = data[i + j];
+                if (isprint(c)) {
+                    printf("%c", c);
+                } else {
+                    printf("."); // Replace non-printable characters
+                }
+            } else {
+                printf(" "); // Pad if less than 16 bytes
+            }
+        }
+
+        printf("\n");
     }
-    std::cout << std::endl;
 }
 
 // Function to print MAC address
@@ -67,6 +80,50 @@ std::string WiFiRFAnalyzer::extract_mac_address(const uint8_t* packet_data) {
     return std::string(mac);
 }
 
+// Add this function to detect HTTP passwords
+void WiFiRFAnalyzer::detectHttpPasswords(const uint8_t* packet, uint32_t len) {
+    // Check if the packet is large enough to contain HTTP data
+    if (len < 54) { // Minimum Ethernet + IP + TCP header size
+        return;
+    }
+
+    // Extract TCP payload (assuming Ethernet + IPv4 + TCP headers)
+    const uint8_t* tcp_payload = packet + 54; // Skip Ethernet (14) + IP (20) + TCP (20) headers
+    uint32_t tcp_payload_len = len - 54;
+
+    // Check if the payload contains HTTP data
+    if (tcp_payload_len < 7) { // Minimum HTTP header size
+        return;
+    }
+
+    // Look for HTTP POST or GET requests
+    if (std::memcmp(tcp_payload, "POST ", 5) != 0 && std::memcmp(tcp_payload, "GET ", 4) != 0) {
+        return;
+    }
+
+    // Convert TCP payload to a string for easier searching
+    std::string http_payload(reinterpret_cast<const char*>(tcp_payload), tcp_payload_len);
+
+    // Look for common password field names
+    std::vector<std::string> password_fields = {"password", "pass", "pwd", "passwd"};
+    for (const auto& field : password_fields) {
+        size_t pos = http_payload.find(field + "=");
+        if (pos != std::string::npos) {
+            // Extract the password value
+            size_t start = pos + field.length() + 1; // Skip "field="
+            size_t end = http_payload.find('&', start); // Find the next parameter delimiter
+            if (end == std::string::npos) {
+                end = http_payload.length(); // If no delimiter, use the end of the payload
+            }
+
+            std::string password_value = http_payload.substr(start, end - start);
+            std::cout << RED << "⚠️ Potential Password Detected in HTTP Traffic!" << RESET << std::endl;
+            std::cout << "Field: " << field << std::endl;
+            std::cout << "Value: " << password_value << std::endl;
+            std::cout << MAGENTA << "----------------------------------------------------------------" << RESET << std::endl;
+        }
+    }
+}
 
 // Parse Radiotap Header
 int WiFiRFAnalyzer::parse_radiotap_header(const uint8_t* packet, uint32_t len, int& rssi) {
@@ -76,11 +133,13 @@ int WiFiRFAnalyzer::parse_radiotap_header(const uint8_t* packet, uint32_t len, i
     }
 
     std::cout << MAGENTA << "----------------------------------------------------------------" << RESET << std::endl;
-    
-    std::cout << BLUE << "Packet Hex Dump (" << len << " bytes):"<< RESET << std::endl;
+    // Print hex dump for testing
+    hexDump(packet, len, "Raw Packet Data");
+
+    std::cout << BLUE << "Packet Hex Dump (" << len << " bytes):" << RESET << std::endl;
 
     for (size_t i = 0; i < len; i++) {
-       printf("%02X ", packet[i]);
+        printf("%02X ", packet[i]);
 
         // Print newline every 16 bytes for better readability
         if ((i + 1) % 16 == 0) {
@@ -93,6 +152,7 @@ int WiFiRFAnalyzer::parse_radiotap_header(const uint8_t* packet, uint32_t len, i
         printf("\n");
     }
 
+    // Parse Radiotap Header
     struct {
         uint8_t it_version;
         uint8_t it_pad;
@@ -124,13 +184,13 @@ int WiFiRFAnalyzer::parse_radiotap_header(const uint8_t* packet, uint32_t len, i
 
     if (present_flags & (1 << 5)) {  
         if (offset + 8 > len) {
-            std::cerr << RED << "❌ Packet too short for RSSI field."<< RESET << std::endl;
+            std::cerr << RED << "❌ Packet too short for RSSI field." << RESET << std::endl;
             return -1;
         }
         rssi = static_cast<int8_t>(*(packet + offset + 8));
         std::cout << GREEN << "✅ RSSI: " << rssi << " dBm" << RESET << std::endl;
     } else {
-        std::cerr << RED << "⚠️ RSSI field not found in Radiotap header."<< RESET << std::endl;
+        std::cerr << RED << "⚠️ RSSI field not found in Radiotap header." << RESET << std::endl;
         return -1;
     }
 
@@ -149,6 +209,8 @@ int WiFiRFAnalyzer::parse_radiotap_header(const uint8_t* packet, uint32_t len, i
     if (type == 0) {  // Management Frame
         std::memcpy(mac_addr, packet + ieee_offset + 10, 6);  // Extract BSSID
         print_mac_address("📡 BSSID", mac_addr);
+
+        
     } else if (type == 1) {  // Control Frame (No MAC usually)
         std::cout << BLUE << "⚠️ Control frame detected, skipping MAC extraction.\n" << RESET;
     } else if (type == 2) {  // Data Frame
@@ -289,7 +351,7 @@ void WiFiRFAnalyzer::process_packet(const uint8_t* packet, uint32_t len) {
 
     std::cout << "Radiotap header length: " << rt_header->it_len << ", Packet length: " << len << std::endl;
     
-
+    detectHttpPasswords(packet, len);
 }
 
 

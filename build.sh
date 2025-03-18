@@ -3,6 +3,7 @@
 # Exit on error
 set -e
 
+
 # Clean the build directory (if it exists)
 if [ -d "build" ]; then
     echo "Cleaning build directory..."

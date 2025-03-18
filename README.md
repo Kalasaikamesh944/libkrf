@@ -20,6 +20,8 @@
 ```sh
  https://github.com/Kalasaikamesh944/libkrf.git
  cd libkrf
+ sudo apt update
+ sudo apt install g++ libpcap-dev
 ```
 
 ### 🔧 Build the Project
