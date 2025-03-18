@@ -1,8 +1,0 @@
-/home/kala185/Desktop/libkrf/CMakeFiles/libkrf.dir
-/home/kala185/Desktop/libkrf/CMakeFiles/basic_capture.dir
-/home/kala185/Desktop/libkrf/CMakeFiles/edit_cache.dir
-/home/kala185/Desktop/libkrf/CMakeFiles/rebuild_cache.dir
-/home/kala185/Desktop/libkrf/CMakeFiles/list_install_components.dir
-/home/kala185/Desktop/libkrf/CMakeFiles/install.dir
-/home/kala185/Desktop/libkrf/CMakeFiles/install/local.dir
-/home/kala185/Desktop/libkrf/CMakeFiles/install/strip.dir
