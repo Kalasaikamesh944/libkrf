@@ -37,7 +37,8 @@ public:
     void scan_networks();
     int parse_radiotap_header(const uint8_t* packet, uint32_t len, int& rssi);
     std::string extract_mac_address(const uint8_t* packet_data);
-    
+    std::vector<unsigned char> hexToBytes(const std::string& hex);
+    void printBytesAsText(const std::vector<unsigned char>& bytes);
 
 private:
     std::string interface;

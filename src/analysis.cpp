@@ -28,6 +28,28 @@ const std::string CYAN = "\033[1;36m";
 const std::string RESET = "\033[0m";  // Reset to default color
 
 
+std::vector<unsigned char> WiFiRFAnalyzer::hexToBytes(const std::string& hex) {
+    std::vector<unsigned char> bytes;
+    for (size_t i = 0; i < hex.length(); i += 2) {
+        std::string byteString = hex.substr(i, 2);
+        unsigned char byte = (unsigned char) strtol(byteString.c_str(), nullptr, 16);
+        bytes.push_back(byte);
+    }
+    return bytes;
+}
+
+void WiFiRFAnalyzer::printBytesAsText(const std::vector<unsigned char>& bytes) {
+    std::cout << "Decoded Data: ";
+    for (unsigned char byte : bytes) {
+        if (isprint(byte)) {  // Only print readable ASCII characters
+            std::cout << byte;
+        } else {
+            std::cout << ".";  // Replace non-printable characters
+        }
+    }
+    std::cout << std::endl;
+}
+
 // Function to print MAC address
 void print_mac_address(const char* label, const uint8_t* mac) {
     printf("✅ %s MAC: %02X:%02X:%02X:%02X:%02X:%02X\n", 
@@ -60,17 +82,16 @@ int WiFiRFAnalyzer::parse_radiotap_header(const uint8_t* packet, uint32_t len, i
     for (size_t i = 0; i < len; i++) {
        printf("%02X ", packet[i]);
 
-    // Print newline every 16 bytes for better readability
-       if ((i + 1) % 16 == 0) {
-        printf("\n");
-       }
+        // Print newline every 16 bytes for better readability
+        if ((i + 1) % 16 == 0) {
+            printf("\n");
+        }
     }
 
     // Ensure the last line is printed properly
     if (len % 16 != 0) {
-       printf("\n");
+        printf("\n");
     }
-
 
     struct {
         uint8_t it_version;
@@ -134,6 +155,63 @@ int WiFiRFAnalyzer::parse_radiotap_header(const uint8_t* packet, uint32_t len, i
         std::memcpy(mac_addr, packet + ieee_offset + 4, 6);  // Extract Source MAC
         print_mac_address("📶 Source", mac_addr);
     }
+
+    // Decode the hexdump data
+    std::cout << CYAN << "Decoding Hexdump Data:" << RESET << std::endl;
+    std::cout << "Frame Control Field: " << std::hex << static_cast<int>(frame_control) << std::dec << std::endl;
+    std::cout << "Type: " << static_cast<int>(type) << " (";
+    switch (type) {
+        case 0: std::cout << "Management"; break;
+        case 1: std::cout << "Control"; break;
+        case 2: std::cout << "Data"; break;
+        default: std::cout << "Unknown"; break;
+    }
+    std::cout << ")" << std::endl;
+
+    std::cout << "Subtype: " << static_cast<int>(subtype) << " (";
+    switch (type) {
+        case 0: // Management Frame Subtypes
+            switch (subtype) {
+                case 0: std::cout << "Association Request"; break;
+                case 1: std::cout << "Association Response"; break;
+                case 2: std::cout << "Reassociation Request"; break;
+                case 3: std::cout << "Reassociation Response"; break;
+                case 4: std::cout << "Probe Request"; break;
+                case 5: std::cout << "Probe Response"; break;
+                case 8: std::cout << "Beacon"; break;
+                case 9: std::cout << "ATIM"; break;
+                case 10: std::cout << "Disassociation"; break;
+                case 11: std::cout << "Authentication"; break;
+                case 12: std::cout << "Deauthentication"; break;
+                default: std::cout << "Unknown"; break;
+            }
+            break;
+        case 1: // Control Frame Subtypes
+            switch (subtype) {
+                case 11: std::cout << "RTS"; break;
+                case 12: std::cout << "CTS"; break;
+                case 13: std::cout << "ACK"; break;
+                case 14: std::cout << "CF-End"; break;
+                case 15: std::cout << "CF-End + CF-Ack"; break;
+                default: std::cout << "Unknown"; break;
+            }
+            break;
+        case 2: // Data Frame Subtypes
+            switch (subtype) {
+                case 0: std::cout << "Data"; break;
+                case 1: std::cout << "Data + CF-Ack"; break;
+                case 2: std::cout << "Data + CF-Poll"; break;
+                case 3: std::cout << "Data + CF-Ack + CF-Poll"; break;
+                case 4: std::cout << "Null"; break;
+                case 5: std::cout << "CF-Ack"; break;
+                case 6: std::cout << "CF-Poll"; break;
+                case 7: std::cout << "CF-Ack + CF-Poll"; break;
+                default: std::cout << "Unknown"; break;
+            }
+            break;
+        default: std::cout << "Unknown"; break;
+    }
+    std::cout << ")" << std::endl;
 
     return radiotap_len;
 }
@@ -213,5 +291,6 @@ void WiFiRFAnalyzer::process_packet(const uint8_t* packet, uint32_t len) {
     
 
 }
+
 
 } // namespace libkrf
