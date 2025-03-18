@@ -40,7 +40,7 @@ make
 
 ### ✅ Run Basic Capture Example
 ```sh
-./build/basic_capture wlan0mon
+./build/evilmon wlan0mon
 ```
 
 ---
