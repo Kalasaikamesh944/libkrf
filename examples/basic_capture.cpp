@@ -11,7 +11,27 @@ void signal_handler(int signum) {
     stop_signal = true;
 }
 
+void banner(){
+    #include <iostream>
+
+
+    // ANSI escape codes for colors
+    const std::string RED = "\033[1;31m";
+    const std::string GREEN = "\033[1;32m";
+    const std::string YELLOW = "\033[1;33m";
+    const std::string BLUE = "\033[1;34m";
+    const std::string MAGENTA = "\033[1;35m";
+    const std::string CYAN = "\033[1;36m";
+    const std::string RESET = "\033[0m";  // Reset to default color
+
+    std::cout << RED << "========================================" << RESET << std::endl;
+    std::cout << GREEN << "🔥 Welcome to the libkrf Sniffer Tool 🔥" << RESET << std::endl;
+    std::cout << YELLOW << "========================================" << RESET << std::endl;
+    
+}
+
 int main(int argc, char** argv) {
+    banner();
     if (argc < 2) {
         std::cerr << "Usage: " << argv[0] << " <interface>" << std::endl;
         return 1;

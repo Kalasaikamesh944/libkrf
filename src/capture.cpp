@@ -9,6 +9,14 @@ extern std::atomic<bool> stop_signal;
 
 namespace libkrf {
 
+const std::string RED = "\033[1;31m";
+const std::string GREEN = "\033[1;32m";
+const std::string YELLOW = "\033[1;33m";
+const std::string BLUE = "\033[1;34m";
+const std::string MAGENTA = "\033[1;35m";
+const std::string CYAN = "\033[1;36m";
+const std::string RESET = "\033[0m";  // Reset to default color
+
 WiFiRFAnalyzer::WiFiRFAnalyzer(const std::string& iface) 
     : interface(iface), pcap_handle(nullptr), is_capturing(false) {}
 
@@ -21,7 +29,7 @@ bool WiFiRFAnalyzer::start_capture() {
     pcap_t* handle = pcap_open_live(interface.c_str(), BUFSIZ, 1, 1000, errbuf);
 
     if (handle == nullptr) {
-        std::cerr << "❌ Error opening interface: " << errbuf << std::endl;
+        std::cerr << RED << "❌ Error opening interface: " << errbuf << RESET << std::endl;
         return false;  // Return false on failure
     }
 
@@ -38,8 +46,8 @@ bool WiFiRFAnalyzer::start_capture() {
         int radiotap_len = parse_radiotap_header(packet, header->len, rssi);
 
         if (radiotap_len > 0) {
-            std::cout << "✅ Parsed Radiotap Header - Length: " << radiotap_len
-                      << " | RSSI: " << rssi << " dBm" << std::endl;
+            std::cout << GREEN << "✅ Parsed Radiotap Header - Length: " << radiotap_len << RESET << 
+                    BLUE  << " | RSSI: " << rssi << " dBm"<< RESET << std::endl;
         }
     }
 
@@ -66,7 +74,7 @@ std::vector<uint8_t> WiFiRFAnalyzer::capture_packets(int packet_count) {
         if (res == 1) {
             packets.insert(packets.end(), packet, packet + header->len);
         } else if (res == 0) {
-            std::cerr << "Timeout reached." << std::endl;
+            std::cerr << RED << "Timeout reached." << RESET << std::endl;
         } else {
             throw std::runtime_error("❌Error capturing packet: " + std::string(pcap_geterr(pcap_handle)));
         }

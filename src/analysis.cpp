@@ -19,6 +19,15 @@ extern std::atomic<bool> stop_signal;
 
 namespace libkrf {
 
+const std::string RED = "\033[1;31m";
+const std::string GREEN = "\033[1;32m";
+const std::string YELLOW = "\033[1;33m";
+const std::string BLUE = "\033[1;34m";
+const std::string MAGENTA = "\033[1;35m";
+const std::string CYAN = "\033[1;36m";
+const std::string RESET = "\033[0m";  // Reset to default color
+
+
 // Function to print MAC address
 void print_mac_address(const char* label, const uint8_t* mac) {
     printf("✅ %s MAC: %02X:%02X:%02X:%02X:%02X:%02X\n", 
@@ -40,11 +49,13 @@ std::string WiFiRFAnalyzer::extract_mac_address(const uint8_t* packet_data) {
 // Parse Radiotap Header
 int WiFiRFAnalyzer::parse_radiotap_header(const uint8_t* packet, uint32_t len, int& rssi) {
     if (len < 8) {
-        std::cerr << "❌ Packet too small for Radiotap header. Length: " << len << std::endl;
+        std::cerr << RED << "❌ Packet too small for Radiotap header. Length: " << len << RESET  << std::endl;
         return -1;
     }
+
+    std::cout << MAGENTA << "----------------------------------------------------------------" << RESET << std::endl;
     
-    std::cout << "Packet Hex Dump (" << len << " bytes):" << std::endl;
+    std::cout << BLUE << "Packet Hex Dump (" << len << " bytes):"<< RESET << std::endl;
 
     for (size_t i = 0; i < len; i++) {
        printf("%02X ", packet[i]);
@@ -74,15 +85,15 @@ int WiFiRFAnalyzer::parse_radiotap_header(const uint8_t* packet, uint32_t len, i
     uint32_t present_flags = le32toh(rt_header.it_present);
 
     if (radiotap_len > len || radiotap_len < 8 || radiotap_len > 128) {
-        std::cerr << "❌ Invalid Radiotap header length! Header length: " << radiotap_len 
-                  << ", Packet length: " << len << std::endl;
+        std::cerr << RED <<  "❌ Invalid Radiotap header length! Header length: " << radiotap_len 
+                  << ", Packet length: " << len << RESET << std::endl;
         return -1;
     }
 
     uint32_t offset = 8;
     while (present_flags & 0x80000000) {  
         if (offset + 4 > len) {
-            std::cerr << "❌ Malformed Radiotap header: `it_present` overflow!" << std::endl;
+            std::cerr << RED << "❌ Malformed Radiotap header: `it_present` overflow!" << RESET <<  std::endl;
             return -1;
         }
         std::memcpy(&present_flags, packet + offset, 4);
@@ -92,20 +103,20 @@ int WiFiRFAnalyzer::parse_radiotap_header(const uint8_t* packet, uint32_t len, i
 
     if (present_flags & (1 << 5)) {  
         if (offset + 8 > len) {
-            std::cerr << "❌ Packet too short for RSSI field." << std::endl;
+            std::cerr << RED << "❌ Packet too short for RSSI field."<< RESET << std::endl;
             return -1;
         }
         rssi = static_cast<int8_t>(*(packet + offset + 8));
-        std::cout << "✅ RSSI: " << rssi << " dBm" << std::endl;
+        std::cout << GREEN << "✅ RSSI: " << rssi << " dBm" << RESET << std::endl;
     } else {
-        std::cerr << "⚠️ RSSI field not found in Radiotap header." << std::endl;
+        std::cerr << RED << "⚠️ RSSI field not found in Radiotap header."<< RESET << std::endl;
         return -1;
     }
 
     // ✅ Extract MAC Address from IEEE 802.11 header
     uint32_t ieee_offset = radiotap_len;
     if (ieee_offset + 10 > len) {
-        std::cerr << "❌ Packet too small for IEEE 802.11 header!" << std::endl;
+        std::cerr << RED <<  "❌ Packet too small for IEEE 802.11 header!" << RESET << std::endl;
         return -1;
     }
 
@@ -118,7 +129,7 @@ int WiFiRFAnalyzer::parse_radiotap_header(const uint8_t* packet, uint32_t len, i
         std::memcpy(mac_addr, packet + ieee_offset + 10, 6);  // Extract BSSID
         print_mac_address("📡 BSSID", mac_addr);
     } else if (type == 1) {  // Control Frame (No MAC usually)
-        std::cout << "⚠️ Control frame detected, skipping MAC extraction.\n";
+        std::cout << BLUE << "⚠️ Control frame detected, skipping MAC extraction.\n" << RESET;
     } else if (type == 2) {  // Data Frame
         std::memcpy(mac_addr, packet + ieee_offset + 4, 6);  // Extract Source MAC
         print_mac_address("📶 Source", mac_addr);
@@ -164,7 +175,7 @@ void WiFiRFAnalyzer::scan_networks() {
         } else if (res == 0) {
             continue; // Timeout
         } else {
-            std::cerr << "❌Error capturing packet: " << pcap_geterr(pcap_handle) << std::endl;
+            std::cerr << RED << "❌Error capturing packet: " << pcap_geterr(pcap_handle) << RESET << std::endl;
             break; // Exit on error
         }
     }
@@ -180,12 +191,12 @@ std::string extract_mac_address(const uint8_t* packet_data) {
 
 void WiFiRFAnalyzer::process_packet(const uint8_t* packet, uint32_t len) {
     if (!packet) {
-        std::cerr << "❌Packet pointer is null." << std::endl;
+        std::cerr << RED << "❌Packet pointer is null." << RESET <<std::endl;
         return;
     }
 
     if (len < sizeof(radiotap_header)) {
-        std::cerr << "❌Packet too small to contain Radiotap header. Packet length: " << len << std::endl;
+        std::cerr << RED <<  "❌Packet too small to contain Radiotap header. Packet length: "<< RESET << len << std::endl;
         return;
     }
 
@@ -193,13 +204,8 @@ void WiFiRFAnalyzer::process_packet(const uint8_t* packet, uint32_t len) {
 
     // Ensure the radiotap header length is valid
     if (rt_header->it_len < sizeof(radiotap_header) || rt_header->it_len > len) {
-        std::cerr << "❌ Invalid Radiotap header length! Header length: " << rt_header->it_len
-                  << ", Packet length: " << len << std::endl;
-        std::cout << "Packet Hex Dump: ";
-        for (size_t i = 0; i < 16 && i < len; i++) {
-            printf("%02X ", packet[i]);
-        }
-        std::cout << std::endl;          
+        std::cerr << RED << "❌ Invalid Radiotap header length! Header length: " << rt_header->it_len
+                  << ", Packet length: " << len << RESET << std::endl;          
         return;
     }
 
