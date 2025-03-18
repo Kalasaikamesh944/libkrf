@@ -14,6 +14,15 @@ add_library(libkrf SHARED ${SOURCES})
 
 # Link libraries
 target_link_libraries(libkrf pcap nl-3 nl-genl-3)
+# Install the shared library
+install(TARGETS libkrf
+    LIBRARY DESTINATION /usr/local/lib
+    ARCHIVE DESTINATION /usr/local/lib
+    RUNTIME DESTINATION /usr/local/bin
+)
+
+# Install header files
+install(DIRECTORY include/ DESTINATION /usr/local/include)
 
 # Build example
 add_executable(basic_capture examples/basic_capture.cpp)
