@@ -1,0 +1,18 @@
+Package: libkrf
+Version: 1.0-1
+Architecture: amd64
+Maintainer: N V R K SAI KAMESH YADAVALLI  <saikamesh.y@gmail.com>
+Installed-Size: 141
+Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.0), libnl-3-200 (>= 3.2.7), libnl-genl-3-200 (>= 3.2.7), libpcap0.8t64 (>= 0.9.8), libstdc++6 (>= 13.1)
+Priority: used for monator the interfaces
+Section: net
+Filename: pool/main/libk/libkrf/libkrf_1.0-1_amd64.deb
+Size: 28544
+SHA512: 32d4daae98fe4c7358fa585ca6c96424553551515dabe10d3dbe85325e686c54e1c12622c53497212066a425e89821b1a307b00769fcd3a5a3b8ab6da091f513
+SHA256: 1ace86732b921df91dfc236014a2238d476d8d7607c5554b910715ef7dce227a
+SHA1: a03469bc8bf12cfa7c28be479aacc475414a072d
+MD5sum: 18d8ed90b3c56d8478eb56e5c2341c49
+Description: A wireless security analysis tool for Kali Linux
+ This tool captures and analyzes raw 802.11 packets, providing features for
+ penetration testers and security researchers.
+

@@ -1,0 +1,13 @@
+Source: libkrf
+Maintainer: N V R K SAI KAMESH YADAVALLI  <saikamesh.y@gmail.com>
+Section: net
+Priority: used for monator the interfaces
+Standards-Version: 4.5.1
+Build-Depends: debhelper-compat (= 13), libpcap-dev, libnl-3-dev, libnl-genl-3-dev
+
+Package: libkrf
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A wireless security analysis tool for Kali Linux
+ This tool captures and analyzes raw 802.11 packets, providing features for 
+ penetration testers and security researchers.
