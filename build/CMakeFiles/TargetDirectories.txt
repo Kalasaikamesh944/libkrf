@@ -1,0 +1,4 @@
+/home/kala185/Desktop/libkrf/build/CMakeFiles/libkrf.dir
+/home/kala185/Desktop/libkrf/build/CMakeFiles/basic_capture.dir
+/home/kala185/Desktop/libkrf/build/CMakeFiles/edit_cache.dir
+/home/kala185/Desktop/libkrf/build/CMakeFiles/rebuild_cache.dir
