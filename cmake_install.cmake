@@ -1,4 +1,4 @@
-# Install script for directory: /home/kala185/Desktop/libkrf-1.0
+# Install script for directory: /home/kala185/Desktop/libkrf
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -57,7 +57,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/local/lib" TYPE SHARED_LIBRARY FILES "/home/kala185/Desktop/libkrf-1.0/liblibkrf.so")
+  file(INSTALL DESTINATION "/usr/local/lib" TYPE SHARED_LIBRARY FILES "/home/kala185/Desktop/libkrf/liblibkrf.so")
   if(EXISTS "$ENV{DESTDIR}/usr/local/lib/liblibkrf.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/usr/local/lib/liblibkrf.so")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -78,7 +78,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/local/include" TYPE DIRECTORY FILES "/home/kala185/Desktop/libkrf-1.0/include/")
+  file(INSTALL DESTINATION "/usr/local/include" TYPE DIRECTORY FILES "/home/kala185/Desktop/libkrf/include/")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -96,6 +96,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "/home/kala185/Desktop/libkrf-1.0/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/home/kala185/Desktop/libkrf/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

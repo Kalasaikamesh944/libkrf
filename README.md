@@ -54,7 +54,7 @@ To capture packets and analyze signal strength:
 ```
 Example:
 ```sh
-./build/basic_capture wlan0mon
+./build/evilmon wlan0mon
 ```
 
 ### 🛠 Options & Functionality
@@ -131,4 +131,3 @@ Feel free to fork and submit PRs to improve functionality.
 ## License
 This project is licensed under the MIT License.
 
-# libkrf-1.0

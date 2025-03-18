@@ -26,4 +26,4 @@ make
 
 # Run the example program
 echo "Running example program..."
-sudo ./basic_capture
+sudo ./evilmon

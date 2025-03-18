@@ -54,17 +54,17 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kala185/Desktop/libkrf-1.0
+CMAKE_SOURCE_DIR = /home/kala185/Desktop/libkrf
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kala185/Desktop/libkrf-1.0/build
+CMAKE_BINARY_DIR = /home/kala185/Desktop/libkrf/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
 all: CMakeFiles/libkrf.dir/all
-all: CMakeFiles/basic_capture.dir/all
+all: CMakeFiles/evilmon.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -73,7 +73,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/libkrf.dir/clean
-clean: CMakeFiles/basic_capture.dir/clean
+clean: CMakeFiles/evilmon.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -83,14 +83,14 @@ clean: CMakeFiles/basic_capture.dir/clean
 CMakeFiles/libkrf.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/libkrf.dir/build.make CMakeFiles/libkrf.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/libkrf.dir/build.make CMakeFiles/libkrf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/kala185/Desktop/libkrf-1.0/build/CMakeFiles --progress-num=3,4,5,6,7 "Built target libkrf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/kala185/Desktop/libkrf/build/CMakeFiles --progress-num=3,4,5,6,7 "Built target libkrf"
 .PHONY : CMakeFiles/libkrf.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/libkrf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kala185/Desktop/libkrf-1.0/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kala185/Desktop/libkrf/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/libkrf.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kala185/Desktop/libkrf-1.0/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kala185/Desktop/libkrf/build/CMakeFiles 0
 .PHONY : CMakeFiles/libkrf.dir/rule
 
 # Convenience name for target.
@@ -103,30 +103,30 @@ CMakeFiles/libkrf.dir/clean:
 .PHONY : CMakeFiles/libkrf.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/basic_capture.dir
+# Target rules for target CMakeFiles/evilmon.dir
 
 # All Build rule for target.
-CMakeFiles/basic_capture.dir/all: CMakeFiles/libkrf.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/basic_capture.dir/build.make CMakeFiles/basic_capture.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/basic_capture.dir/build.make CMakeFiles/basic_capture.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/kala185/Desktop/libkrf-1.0/build/CMakeFiles --progress-num=1,2 "Built target basic_capture"
-.PHONY : CMakeFiles/basic_capture.dir/all
+CMakeFiles/evilmon.dir/all: CMakeFiles/libkrf.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/evilmon.dir/build.make CMakeFiles/evilmon.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/evilmon.dir/build.make CMakeFiles/evilmon.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/kala185/Desktop/libkrf/build/CMakeFiles --progress-num=1,2 "Built target evilmon"
+.PHONY : CMakeFiles/evilmon.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/basic_capture.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kala185/Desktop/libkrf-1.0/build/CMakeFiles 7
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/basic_capture.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kala185/Desktop/libkrf-1.0/build/CMakeFiles 0
-.PHONY : CMakeFiles/basic_capture.dir/rule
+CMakeFiles/evilmon.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kala185/Desktop/libkrf/build/CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/evilmon.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kala185/Desktop/libkrf/build/CMakeFiles 0
+.PHONY : CMakeFiles/evilmon.dir/rule
 
 # Convenience name for target.
-basic_capture: CMakeFiles/basic_capture.dir/rule
-.PHONY : basic_capture
+evilmon: CMakeFiles/evilmon.dir/rule
+.PHONY : evilmon
 
 # clean rule for target.
-CMakeFiles/basic_capture.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/basic_capture.dir/build.make CMakeFiles/basic_capture.dir/clean
-.PHONY : CMakeFiles/basic_capture.dir/clean
+CMakeFiles/evilmon.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/evilmon.dir/build.make CMakeFiles/evilmon.dir/clean
+.PHONY : CMakeFiles/evilmon.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

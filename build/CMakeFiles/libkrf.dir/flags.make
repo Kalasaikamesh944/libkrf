@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -Dlibkrf_EXPORTS
 
-CXX_INCLUDES = -I/home/kala185/Desktop/libkrf-1.0/include -I/usr/include/libnl3
+CXX_INCLUDES = -I/home/kala185/Desktop/libkrf/include -I/usr/include/libnl3
 
 CXX_FLAGS = -std=gnu++17 -fPIC
 

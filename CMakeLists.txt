@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(libkrf-1.0)
+project(libkrf)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -25,5 +25,5 @@ install(TARGETS libkrf
 install(DIRECTORY include/ DESTINATION /usr/local/include)
 
 # Build example
-add_executable(basic_capture examples/basic_capture.cpp)
-target_link_libraries(basic_capture libkrf)
+add_executable(evilmon examples/basic_capture.cpp)
+target_link_libraries(evilmon libkrf)

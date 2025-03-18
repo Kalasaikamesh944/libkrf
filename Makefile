@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kala185/Desktop/libkrf-1.0
+CMAKE_SOURCE_DIR = /home/kala185/Desktop/libkrf
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kala185/Desktop/libkrf-1.0
+CMAKE_BINARY_DIR = /home/kala185/Desktop/libkrf
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kala185/Desktop/libkrf-1.0/CMakeFiles /home/kala185/Desktop/libkrf-1.0//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kala185/Desktop/libkrf/CMakeFiles /home/kala185/Desktop/libkrf//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kala185/Desktop/libkrf-1.0/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kala185/Desktop/libkrf/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -175,24 +175,24 @@ libkrf/fast:
 .PHONY : libkrf/fast
 
 #=============================================================================
-# Target rules for targets named basic_capture
+# Target rules for targets named evilmon
 
 # Build rule for target.
-basic_capture: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 basic_capture
-.PHONY : basic_capture
+evilmon: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 evilmon
+.PHONY : evilmon
 
 # fast build rule for target.
-basic_capture/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/basic_capture.dir/build.make CMakeFiles/basic_capture.dir/build
-.PHONY : basic_capture/fast
+evilmon/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/evilmon.dir/build.make CMakeFiles/evilmon.dir/build
+.PHONY : evilmon/fast
 
 examples/basic_capture.o: examples/basic_capture.cpp.o
 .PHONY : examples/basic_capture.o
 
 # target to build an object file
 examples/basic_capture.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/basic_capture.dir/build.make CMakeFiles/basic_capture.dir/examples/basic_capture.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/evilmon.dir/build.make CMakeFiles/evilmon.dir/examples/basic_capture.cpp.o
 .PHONY : examples/basic_capture.cpp.o
 
 examples/basic_capture.i: examples/basic_capture.cpp.i
@@ -200,7 +200,7 @@ examples/basic_capture.i: examples/basic_capture.cpp.i
 
 # target to preprocess a source file
 examples/basic_capture.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/basic_capture.dir/build.make CMakeFiles/basic_capture.dir/examples/basic_capture.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/evilmon.dir/build.make CMakeFiles/evilmon.dir/examples/basic_capture.cpp.i
 .PHONY : examples/basic_capture.cpp.i
 
 examples/basic_capture.s: examples/basic_capture.cpp.s
@@ -208,7 +208,7 @@ examples/basic_capture.s: examples/basic_capture.cpp.s
 
 # target to generate assembly for a file
 examples/basic_capture.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/basic_capture.dir/build.make CMakeFiles/basic_capture.dir/examples/basic_capture.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/evilmon.dir/build.make CMakeFiles/evilmon.dir/examples/basic_capture.cpp.s
 .PHONY : examples/basic_capture.cpp.s
 
 src/analysis.o: src/analysis.cpp.o
@@ -319,7 +319,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... basic_capture"
+	@echo "... evilmon"
 	@echo "... libkrf"
 	@echo "... examples/basic_capture.o"
 	@echo "... examples/basic_capture.i"

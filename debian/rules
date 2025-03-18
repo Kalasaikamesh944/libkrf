@@ -1,8 +1,6 @@
 #!/usr/bin/make -f
 %:
 	dh $@
-override_dh_auto_clean:
-	rm -rf build
 
 override_dh_auto_configure:
 	cmake .
@@ -12,7 +10,7 @@ override_dh_auto_build:
 
 override_dh_auto_install:
 	mkdir -p debian/libkrf/usr/bin
-	cp build/basic_capture debian/libkrf/usr/bin/
+	cp build/evilmon debian/libkrf/usr/bin/
 	mkdir -p debian/libkrf/usr/lib/
 	cp build/liblibkrf.so debian/libkrf/usr/lib/
 	mkdir -p debian/libkrf/usr/include/

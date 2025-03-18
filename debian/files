@@ -1,0 +1,3 @@
+libkrf-dbgsym_1.0-1_amd64.deb debug optional automatic=yes
+libkrf_1.0-1_amd64.buildinfo net optional
+libkrf_1.0-1_amd64.deb net optional

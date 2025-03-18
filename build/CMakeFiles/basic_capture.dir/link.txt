@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/basic_capture.dir/examples/basic_capture.cpp.o -o basic_capture  -Wl,-rpath,/home/kala185/Desktop/libkrf-1.0/build liblibkrf.so -lpcap -lnl-3 -lnl-genl-3

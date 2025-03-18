@@ -1,7 +1,7 @@
 Source: libkrf
 Maintainer: N V R K SAI KAMESH YADAVALLI  <saikamesh.y@gmail.com>
 Section: net
-Priority: used for monator the interfaces
+Priority: optional
 Standards-Version: 4.5.1
 Build-Depends: debhelper-compat (= 13), libpcap-dev, libnl-3-dev, libnl-genl-3-dev
 

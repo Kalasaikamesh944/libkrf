@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kala185/Desktop/libkrf-1.0
+CMAKE_SOURCE_DIR = /home/kala185/Desktop/libkrf
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kala185/Desktop/libkrf-1.0/build
+CMAKE_BINARY_DIR = /home/kala185/Desktop/libkrf/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/libkrf.dir/depend.make
@@ -70,60 +70,60 @@ include CMakeFiles/libkrf.dir/progress.make
 include CMakeFiles/libkrf.dir/flags.make
 
 CMakeFiles/libkrf.dir/src/capture.cpp.o: CMakeFiles/libkrf.dir/flags.make
-CMakeFiles/libkrf.dir/src/capture.cpp.o: /home/kala185/Desktop/libkrf-1.0/src/capture.cpp
+CMakeFiles/libkrf.dir/src/capture.cpp.o: /home/kala185/Desktop/libkrf/src/capture.cpp
 CMakeFiles/libkrf.dir/src/capture.cpp.o: CMakeFiles/libkrf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kala185/Desktop/libkrf-1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/libkrf.dir/src/capture.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/libkrf.dir/src/capture.cpp.o -MF CMakeFiles/libkrf.dir/src/capture.cpp.o.d -o CMakeFiles/libkrf.dir/src/capture.cpp.o -c /home/kala185/Desktop/libkrf-1.0/src/capture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kala185/Desktop/libkrf/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/libkrf.dir/src/capture.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/libkrf.dir/src/capture.cpp.o -MF CMakeFiles/libkrf.dir/src/capture.cpp.o.d -o CMakeFiles/libkrf.dir/src/capture.cpp.o -c /home/kala185/Desktop/libkrf/src/capture.cpp
 
 CMakeFiles/libkrf.dir/src/capture.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/libkrf.dir/src/capture.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kala185/Desktop/libkrf-1.0/src/capture.cpp > CMakeFiles/libkrf.dir/src/capture.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kala185/Desktop/libkrf/src/capture.cpp > CMakeFiles/libkrf.dir/src/capture.cpp.i
 
 CMakeFiles/libkrf.dir/src/capture.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/libkrf.dir/src/capture.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kala185/Desktop/libkrf-1.0/src/capture.cpp -o CMakeFiles/libkrf.dir/src/capture.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kala185/Desktop/libkrf/src/capture.cpp -o CMakeFiles/libkrf.dir/src/capture.cpp.s
 
 CMakeFiles/libkrf.dir/src/monitor.cpp.o: CMakeFiles/libkrf.dir/flags.make
-CMakeFiles/libkrf.dir/src/monitor.cpp.o: /home/kala185/Desktop/libkrf-1.0/src/monitor.cpp
+CMakeFiles/libkrf.dir/src/monitor.cpp.o: /home/kala185/Desktop/libkrf/src/monitor.cpp
 CMakeFiles/libkrf.dir/src/monitor.cpp.o: CMakeFiles/libkrf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kala185/Desktop/libkrf-1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/libkrf.dir/src/monitor.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/libkrf.dir/src/monitor.cpp.o -MF CMakeFiles/libkrf.dir/src/monitor.cpp.o.d -o CMakeFiles/libkrf.dir/src/monitor.cpp.o -c /home/kala185/Desktop/libkrf-1.0/src/monitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kala185/Desktop/libkrf/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/libkrf.dir/src/monitor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/libkrf.dir/src/monitor.cpp.o -MF CMakeFiles/libkrf.dir/src/monitor.cpp.o.d -o CMakeFiles/libkrf.dir/src/monitor.cpp.o -c /home/kala185/Desktop/libkrf/src/monitor.cpp
 
 CMakeFiles/libkrf.dir/src/monitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/libkrf.dir/src/monitor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kala185/Desktop/libkrf-1.0/src/monitor.cpp > CMakeFiles/libkrf.dir/src/monitor.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kala185/Desktop/libkrf/src/monitor.cpp > CMakeFiles/libkrf.dir/src/monitor.cpp.i
 
 CMakeFiles/libkrf.dir/src/monitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/libkrf.dir/src/monitor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kala185/Desktop/libkrf-1.0/src/monitor.cpp -o CMakeFiles/libkrf.dir/src/monitor.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kala185/Desktop/libkrf/src/monitor.cpp -o CMakeFiles/libkrf.dir/src/monitor.cpp.s
 
 CMakeFiles/libkrf.dir/src/analysis.cpp.o: CMakeFiles/libkrf.dir/flags.make
-CMakeFiles/libkrf.dir/src/analysis.cpp.o: /home/kala185/Desktop/libkrf-1.0/src/analysis.cpp
+CMakeFiles/libkrf.dir/src/analysis.cpp.o: /home/kala185/Desktop/libkrf/src/analysis.cpp
 CMakeFiles/libkrf.dir/src/analysis.cpp.o: CMakeFiles/libkrf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kala185/Desktop/libkrf-1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/libkrf.dir/src/analysis.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/libkrf.dir/src/analysis.cpp.o -MF CMakeFiles/libkrf.dir/src/analysis.cpp.o.d -o CMakeFiles/libkrf.dir/src/analysis.cpp.o -c /home/kala185/Desktop/libkrf-1.0/src/analysis.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kala185/Desktop/libkrf/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/libkrf.dir/src/analysis.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/libkrf.dir/src/analysis.cpp.o -MF CMakeFiles/libkrf.dir/src/analysis.cpp.o.d -o CMakeFiles/libkrf.dir/src/analysis.cpp.o -c /home/kala185/Desktop/libkrf/src/analysis.cpp
 
 CMakeFiles/libkrf.dir/src/analysis.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/libkrf.dir/src/analysis.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kala185/Desktop/libkrf-1.0/src/analysis.cpp > CMakeFiles/libkrf.dir/src/analysis.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kala185/Desktop/libkrf/src/analysis.cpp > CMakeFiles/libkrf.dir/src/analysis.cpp.i
 
 CMakeFiles/libkrf.dir/src/analysis.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/libkrf.dir/src/analysis.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kala185/Desktop/libkrf-1.0/src/analysis.cpp -o CMakeFiles/libkrf.dir/src/analysis.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kala185/Desktop/libkrf/src/analysis.cpp -o CMakeFiles/libkrf.dir/src/analysis.cpp.s
 
 CMakeFiles/libkrf.dir/src/utils.cpp.o: CMakeFiles/libkrf.dir/flags.make
-CMakeFiles/libkrf.dir/src/utils.cpp.o: /home/kala185/Desktop/libkrf-1.0/src/utils.cpp
+CMakeFiles/libkrf.dir/src/utils.cpp.o: /home/kala185/Desktop/libkrf/src/utils.cpp
 CMakeFiles/libkrf.dir/src/utils.cpp.o: CMakeFiles/libkrf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kala185/Desktop/libkrf-1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/libkrf.dir/src/utils.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/libkrf.dir/src/utils.cpp.o -MF CMakeFiles/libkrf.dir/src/utils.cpp.o.d -o CMakeFiles/libkrf.dir/src/utils.cpp.o -c /home/kala185/Desktop/libkrf-1.0/src/utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kala185/Desktop/libkrf/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/libkrf.dir/src/utils.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/libkrf.dir/src/utils.cpp.o -MF CMakeFiles/libkrf.dir/src/utils.cpp.o.d -o CMakeFiles/libkrf.dir/src/utils.cpp.o -c /home/kala185/Desktop/libkrf/src/utils.cpp
 
 CMakeFiles/libkrf.dir/src/utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/libkrf.dir/src/utils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kala185/Desktop/libkrf-1.0/src/utils.cpp > CMakeFiles/libkrf.dir/src/utils.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kala185/Desktop/libkrf/src/utils.cpp > CMakeFiles/libkrf.dir/src/utils.cpp.i
 
 CMakeFiles/libkrf.dir/src/utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/libkrf.dir/src/utils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kala185/Desktop/libkrf-1.0/src/utils.cpp -o CMakeFiles/libkrf.dir/src/utils.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kala185/Desktop/libkrf/src/utils.cpp -o CMakeFiles/libkrf.dir/src/utils.cpp.s
 
 # Object files for target libkrf
 libkrf_OBJECTS = \
@@ -141,7 +141,7 @@ liblibkrf.so: CMakeFiles/libkrf.dir/src/analysis.cpp.o
 liblibkrf.so: CMakeFiles/libkrf.dir/src/utils.cpp.o
 liblibkrf.so: CMakeFiles/libkrf.dir/build.make
 liblibkrf.so: CMakeFiles/libkrf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kala185/Desktop/libkrf-1.0/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library liblibkrf.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kala185/Desktop/libkrf/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library liblibkrf.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/libkrf.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -153,6 +153,6 @@ CMakeFiles/libkrf.dir/clean:
 .PHONY : CMakeFiles/libkrf.dir/clean
 
 CMakeFiles/libkrf.dir/depend:
-	cd /home/kala185/Desktop/libkrf-1.0/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kala185/Desktop/libkrf-1.0 /home/kala185/Desktop/libkrf-1.0 /home/kala185/Desktop/libkrf-1.0/build /home/kala185/Desktop/libkrf-1.0/build /home/kala185/Desktop/libkrf-1.0/build/CMakeFiles/libkrf.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/kala185/Desktop/libkrf/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kala185/Desktop/libkrf /home/kala185/Desktop/libkrf /home/kala185/Desktop/libkrf/build /home/kala185/Desktop/libkrf/build /home/kala185/Desktop/libkrf/build/CMakeFiles/libkrf.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/libkrf.dir/depend
 

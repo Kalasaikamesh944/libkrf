@@ -1,8 +1,8 @@
-/home/kala185/Desktop/libkrf-1.0/build/CMakeFiles/libkrf.dir
-/home/kala185/Desktop/libkrf-1.0/build/CMakeFiles/basic_capture.dir
-/home/kala185/Desktop/libkrf-1.0/build/CMakeFiles/edit_cache.dir
-/home/kala185/Desktop/libkrf-1.0/build/CMakeFiles/rebuild_cache.dir
-/home/kala185/Desktop/libkrf-1.0/build/CMakeFiles/list_install_components.dir
-/home/kala185/Desktop/libkrf-1.0/build/CMakeFiles/install.dir
-/home/kala185/Desktop/libkrf-1.0/build/CMakeFiles/install/local.dir
-/home/kala185/Desktop/libkrf-1.0/build/CMakeFiles/install/strip.dir
+/home/kala185/Desktop/libkrf/build/CMakeFiles/libkrf.dir
+/home/kala185/Desktop/libkrf/build/CMakeFiles/evilmon.dir
+/home/kala185/Desktop/libkrf/build/CMakeFiles/edit_cache.dir
+/home/kala185/Desktop/libkrf/build/CMakeFiles/rebuild_cache.dir
+/home/kala185/Desktop/libkrf/build/CMakeFiles/list_install_components.dir
+/home/kala185/Desktop/libkrf/build/CMakeFiles/install.dir
+/home/kala185/Desktop/libkrf/build/CMakeFiles/install/local.dir
+/home/kala185/Desktop/libkrf/build/CMakeFiles/install/strip.dir
