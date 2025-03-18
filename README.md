@@ -1,7 +1,9 @@
 # libkrf
 
-**libkrf** is a powerful wireless network analysis tool designed for extracting radiotap headers, RSSI values, and MAC addresses from live network traffic. It provides advanced packet capture and real-time analysis using `libpcap`.
-
+**libkrf** is a powerful wireless network analysis tool designed for extracting radiotap headers, RSSI values, and MAC addresses from live network traffic. It provides advanced packet capture and real-time analysis using `libpcap` .
+**IMPORTANT** ist works well in mon mode.
+** BY KTMC ** 
+** PROGRAMMER : N V R K SAI KAMESH YADAVALLI **
 ## Features
 
 - 📡 **Radiotap Header Parsing** – Extracts detailed metadata from 802.11 packets.
